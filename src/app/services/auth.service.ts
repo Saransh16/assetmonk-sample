@@ -27,4 +27,23 @@ export class AuthService {
         );
     });
   }
+
+  register(user) {
+    return new Promise((res, rej) => {
+      axios
+        .post(api.register(), {
+          email: user.email,
+          password: user.password,
+        })
+        .then(
+          (response) => {
+            return res(response);
+          },
+          (error) => {
+            console.log(error.response);
+            return rej(error.response);
+          }
+        );
+    });
+  }
 }

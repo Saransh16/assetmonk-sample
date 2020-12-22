@@ -1,9 +1,70 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <div class="heading">
+    Please enter your personal details.
+  </div>
+
+  <div class="navigate-login" (click)="navigateToLogin()">
+    Already have an account? Login
+  </div>
+  
+  <ion-card>
+    <form class="form" [formGroup]="registerForm" (ngSubmit)="submit()" (keyup.enter)="submit()">
+      <ion-item>
+        <ion-label position="stacked">
+          Email
+        </ion-label>
+        <ion-input formControlName="email" type="email"> </ion-input>
+      </ion-item>
+  
+      <p
+        *ngIf="!registerForm.controls.email.valid  && (registerForm.controls.email.dirty || submitAttempt)"
+        class="show-errors"
+      >
+        Please enter an valid email.
+      </p>
+  
+      <ion-item>
+        <ion-label position="stacked">
+          Password
+        </ion-label>
+        <ion-input
+          formControlName="password"
+          autocapitalize
+          type="password"
+        >
+        </ion-input>
+      </ion-item>
+  
+      <p
+        *ngIf="!registerForm.controls.password.valid  && (registerForm.controls.password.dirty || submitAttempt)"
+        class="show-errors"
+      >
+        Password is required.
+      </p>
+  
+      <br />
+  
+      <ion-row>
+        <ion-col>
+          <ion-button
+          expand="block"
+          shape="round"
+          color="primary"
+          type="submit"
+          >
+            Register &nbsp;<ion-icon name="arrow-forward"></ion-icon>
+          </ion-button>              
+        </ion-col>
+      </ion-row>
+    </form>      
+
+  </ion-card>
 
 </ion-content>
