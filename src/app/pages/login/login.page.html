@@ -1,0 +1,86 @@
+<ion-content>
+  <div class="ui-max">
+  
+  <div class="welcome-text">
+    <div class="logo">
+      Welcome Back      
+    </div>
+  </div>
+  <ion-card>
+    
+
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="submit()" autocomplete="off" (keyup.enter)="submit()">
+    <ion-item>
+      <ion-label position="stacked">
+        Email
+      </ion-label>
+      <ion-input formControlName="email" type="email"> </ion-input>
+    </ion-item>
+
+    <p
+      *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty || submitAttempt)"
+      class="show-errors"
+    >
+      Please enter an valid email.
+    </p>
+
+    <ion-item>
+      <ion-label position="stacked">
+        Password
+      </ion-label>
+      <ion-input
+        formControlName="password"
+        autocapitalize
+        type="password"
+      >
+      </ion-input>
+    </ion-item>
+
+    <p
+      *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)"
+      class="show-errors"
+    >
+      Password is required.
+    </p>
+
+    <br />
+
+    <ion-row>
+      <ion-col>
+        <ion-button
+        expand="block"
+        shape="round"
+        color="primary"
+        type="submit"
+        >
+          Login &nbsp;<ion-icon name="arrow-forward"></ion-icon>
+        </ion-button>              
+      </ion-col>
+    </ion-row>
+
+
+  </form>  
+
+</ion-card>
+
+  <div class="navigate-register">
+    Don't Have an account yet? 
+  </div>
+
+  <ion-row>
+    <ion-col class="match-padding">
+      <ion-button
+      (click)="navigateToRegister()"
+      expand="block"
+      shape="round"
+      color="primary"
+      fill="outline"
+      >
+        Sign Up
+      </ion-button>              
+    </ion-col>
+  </ion-row>
+
+  <br>
+</div>
+</ion-content>
