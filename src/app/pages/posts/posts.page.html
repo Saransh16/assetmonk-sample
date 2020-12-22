@@ -1,9 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>posts</ion-title>
+    <ion-title>Posts</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card *ngFor="let post of posts" (click)="viewComments(post.id)">
+          <ion-card-header>
+            <ion-card-title class="title">
+              {{ post.title }}
+            </ion-card-title>            
+          </ion-card-header>
+          <ion-card-content>
+            <span> {{ post.body }} </span>
+          </ion-card-content>            
+        </ion-card>      
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

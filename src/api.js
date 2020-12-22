@@ -6,6 +6,10 @@ const API = {
 
   register : () => {
     return "https://reqres.in/api/register";
+  },
+
+  getPosts : () => {
+    return "https://jsonplaceholder.typicode.com/posts"
   }
 };
 
