@@ -48,7 +48,7 @@ export class LoginPage implements OnInit {
                 key : 'token',
                 value : response.data.token
               }).then(() => {
-                // this.navController.navigateRoot("/tabs/home");
+                this.navController.navigateRoot("/tabs/tasks");
               })
             }
           },
