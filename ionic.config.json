@@ -1,0 +1,7 @@
+{
+  "name": "assetmonk-sample",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
