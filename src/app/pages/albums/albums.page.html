@@ -1,9 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>albums</ion-title>
+    <ion-title>Albums</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list *ngFor="let album of albums">
+          <ion-item (click)="goToPhotos(album.id)">
+            <ion-label>
+              {{ album.title }}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

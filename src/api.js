@@ -14,6 +14,10 @@ const API = {
 
   getComments : (id) => {
     return "https://jsonplaceholder.typicode.com/comments?postId="+id;
+  },
+
+  getAlbums : () => {
+    return "https://jsonplaceholder.typicode.com/albums"
   }
 };
 
