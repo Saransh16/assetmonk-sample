@@ -20,4 +20,16 @@ export class AlbumService {
       });
     });
   }
+
+  getPhotos(id) {
+    return new Promise((res, rej) => {
+      axios.get(api.getPhotos(id))
+      .then((response) => {
+        return res(response);
+      },
+      (error) => {
+        return rej(error);
+      });
+    });
+  }
 }

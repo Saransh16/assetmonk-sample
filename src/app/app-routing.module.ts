@@ -73,6 +73,14 @@ const routes: Routes = [
     path: 'modal-post-comment',
     loadChildren: () => import('./pages/modal-post-comment/modal-post-comment.module').then( m => m.ModalPostCommentPageModule)
   },
+  {
+    path: 'albums/:id/images',
+    loadChildren: () => import('./pages/album-images/album-images.module').then( m => m.AlbumImagesPageModule)
+  },
+  {
+    path: 'modal-view-full-image',
+    loadChildren: () => import('./pages/modal-view-full-image/modal-view-full-image.module').then( m => m.ModalViewFullImagePageModule)
+  },
   
 ];
 

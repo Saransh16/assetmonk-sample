@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 import { AlbumService } from 'src/app/services/album.service';
 
 @Component({
@@ -13,7 +13,8 @@ export class AlbumsPage implements OnInit {
 
   constructor(
     private loadingController : LoadingController,
-    private albumService : AlbumService
+    private albumService : AlbumService,
+    private navController : NavController
   ) { }
 
   ngOnInit() {
@@ -42,7 +43,7 @@ export class AlbumsPage implements OnInit {
   }
 
   goToPhotos(id) {
-    
+    this.navController.navigateForward('albums/'+id+'/images')
   }
 
 }

@@ -18,6 +18,10 @@ const API = {
 
   getAlbums : () => {
     return "https://jsonplaceholder.typicode.com/albums"
+  },
+
+  getPhotos : (id) => {
+    return "https://jsonplaceholder.typicode.com/albums/"+id+"/photos";
   }
 };
 
