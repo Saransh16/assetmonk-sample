@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { PostService } from 'src/app/services/post.service';
+import { ModalPostCommentPage } from '../modal-post-comment/modal-post-comment.page';
 
 @Component({
   selector: 'app-posts',
@@ -14,6 +15,7 @@ export class PostsPage implements OnInit {
   constructor(
     private loadingController : LoadingController,
     private postService : PostService,
+    private modalController : ModalController
   ) { }
 
   ngOnInit() {
@@ -43,8 +45,15 @@ export class PostsPage implements OnInit {
     });
   }
 
-  viewComments(id) {
-    console.log(id);
-  }
+  async viewComments(post) {
+    const modal = await this.modalController.create({
+      component : ModalPostCommentPage,
+      componentProps : {
+        id : post.id,
+        title : post.title
+      }
+    });
 
+    return await modal.present();
+  }
 }

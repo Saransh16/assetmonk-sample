@@ -68,7 +68,12 @@ const routes: Routes = [
   {
     path: 'tasks',
     loadChildren: () => import('./pages/tasks/tasks.module').then( m => m.TasksPageModule)
-  }
+  },
+  {
+    path: 'modal-post-comment',
+    loadChildren: () => import('./pages/modal-post-comment/modal-post-comment.module').then( m => m.ModalPostCommentPageModule)
+  },
+  
 ];
 
 @NgModule({

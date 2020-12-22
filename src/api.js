@@ -10,6 +10,10 @@ const API = {
 
   getPosts : () => {
     return "https://jsonplaceholder.typicode.com/posts"
+  },
+
+  getComments : (id) => {
+    return "https://jsonplaceholder.typicode.com/comments?postId="+id;
   }
 };
 

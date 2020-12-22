@@ -9,7 +9,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-card *ngFor="let post of posts" (click)="viewComments(post.id)">
+        <ion-card *ngFor="let post of posts" (click)="viewComments(post)">
           <ion-card-header>
             <ion-card-title class="title">
               {{ post.title }}
@@ -18,7 +18,7 @@
           <ion-card-content>
             <span> {{ post.body }} </span>
           </ion-card-content>            
-        </ion-card>      
+        </ion-card>   
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -21,4 +21,17 @@ export class PostService {
       });
     });
   }
+
+  getComments(id) {
+
+    return new Promise((res, rej) => {
+      axios.get(api.getComments(id))
+      .then((response) => {
+        return res(response);
+      },
+      (error) => {
+        return rej(error);
+      });
+    });
+  }
 }

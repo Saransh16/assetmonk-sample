@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Comments</ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="danger" (click)="dismissModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="showSpinner" class="center mt-20">
+    <ion-spinner name="lines"></ion-spinner>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card *ngFor="let comment of comments">
+          <ion-card-content>
+            <div>
+              {{ comment.body }}
+            </div>
+          </ion-card-content>
+          <ion-card-header>
+            <ion-card-subtitle color="secondary">
+              By :
+              {{ comment.name }}
+              <br>
+              {{ comment.email }}
+            </ion-card-subtitle>
+          </ion-card-header>          
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
