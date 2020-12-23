@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Plugins } from '@capacitor/core';
 import { NavController } from '@ionic/angular';
 import { EventService } from 'src/app/services/event.service';
 import { TaskService } from 'src/app/services/task.service';
+const { Storage } = Plugins;
 
 @Component({
   selector: 'app-tasks',
@@ -9,6 +11,8 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./tasks.page.scss'],
 })
 export class TasksPage implements OnInit {
+
+  tasks : any = [];
 
   constructor(
     private navController : NavController,
@@ -30,15 +34,37 @@ export class TasksPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    
+    this.fetchTasks();
   }
 
   fetchTasks() {
+
+    Storage.get({
+      key : 'tasks'
+    }).then((data) => {
+      console.log(JSON.parse(data.value));
+      this.tasks = JSON.parse(data.value);
+    })
 
   }
 
   createTask() {
     this.navController.navigateForward('create-task');
+  }
+
+  changeStatus(id, event) {
+
+    this.tasks.forEach(element => {
+      if(element.id == id) {
+        element.completed = event.target.value;
+      }
+    });
+
+    Storage.set({
+      key : 'tasks',
+      value : JSON.stringify(this.tasks)
+    });
+    
   }
 
 }
