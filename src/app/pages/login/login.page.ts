@@ -44,6 +44,7 @@ export class LoginPage implements OnInit {
             loading.dismiss();              
             console.log("I am here in response", response); 
             if(response.status == 200) {
+              Storage.clear();
               Storage.set({
                 key : 'token',
                 value : response.data.token

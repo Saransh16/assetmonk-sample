@@ -13,6 +13,7 @@ const { Storage } = Plugins;
 export class TasksPage implements OnInit {
 
   tasks : any = [];
+  token  = "";
 
   constructor(
     private navController : NavController,
@@ -42,8 +43,19 @@ export class TasksPage implements OnInit {
     Storage.get({
       key : 'tasks'
     }).then((data) => {
-      console.log(JSON.parse(data.value));
-      this.tasks = JSON.parse(data.value);
+      Storage.get({
+        key : 'token'
+      }).then((token) => {
+        let tasks = JSON.parse(data.value);
+        this.token = token.value;
+        this.tasks = [];
+        if(tasks) {
+          tasks.forEach(element => {
+            if(element.userId == this.token) 
+            this.tasks = this.tasks.concat(element);
+          });
+        }
+      });
     })
 
   }
@@ -55,7 +67,7 @@ export class TasksPage implements OnInit {
   changeStatus(id, event) {
 
     this.tasks.forEach(element => {
-      if(element.id == id) {
+      if(element.id == id && element.userId == this.token) {
         element.completed = event.target.value;
       }
     });

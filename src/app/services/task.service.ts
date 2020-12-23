@@ -15,7 +15,7 @@ export class TaskService {
   ) { }
 
   create(task, userToken) {
-
+console.log(userToken);
     return new Promise((res, rej) => {
       Storage.get({
         key : 'tasks'
@@ -39,7 +39,7 @@ export class TaskService {
         }
         else {
           task = [{
-            userId : 'token',
+            userId : userToken,
             id : this.helper.getRandomNumber(1,100),
             completed : false,
             title : task.title
