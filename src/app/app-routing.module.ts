@@ -81,6 +81,10 @@ const routes: Routes = [
     path: 'modal-view-full-image',
     loadChildren: () => import('./pages/modal-view-full-image/modal-view-full-image.module').then( m => m.ModalViewFullImagePageModule)
   },
+  {
+    path: 'create-task',
+    loadChildren: () => import('./pages/create-task/create-task.module').then( m => m.CreateTaskPageModule)
+  },
   
 ];
 

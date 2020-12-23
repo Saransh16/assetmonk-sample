@@ -1,9 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tasks</ion-title>
+    <ion-title>Tasks</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="center">
+
+    <p class="mt-20">
+      No tasks are available at the moment.
+    </p>
+
+    <ion-row>
+      <ion-col>
+        <ion-button 
+          expand="block"
+          fill="outline"
+          color="primary"
+          (click)="createTask()"
+        >
+          Create Task
+        </ion-button>
+      </ion-col>
+    </ion-row>    
+  </div>
 
 </ion-content>

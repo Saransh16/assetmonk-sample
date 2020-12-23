@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>New Task</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tasks"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="center">
+    <p>
+      Create a new task. 
+    </p>
+  </div>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <form class="form" [formGroup]="taskForm" (ngSubmit)="submit()" autocomplete="off" (keyup.enter)="submit()">
+              <ion-item lines="none">
+                <ion-input formControlName="title" placeholder="Enter Title"></ion-input>
+              </ion-item>
+              <p
+              *ngIf="!taskForm.controls.title.valid  && (taskForm.controls.title.dirty || submitAttempt)"
+                class="show-errors"
+              >
+                Title is required.
+              </p>
+              <br><br>
+              <ion-button expand="block" type="submit">
+                Create
+              </ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

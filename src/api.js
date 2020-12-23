@@ -9,7 +9,7 @@ const API = {
   },
 
   getPosts : () => {
-    return "https://jsonplaceholder.typicode.com/posts"
+    return "https://jsonplaceholder.typicode.com/posts";
   },
 
   getComments : (id) => {
@@ -17,11 +17,15 @@ const API = {
   },
 
   getAlbums : () => {
-    return "https://jsonplaceholder.typicode.com/albums"
+    return "https://jsonplaceholder.typicode.com/albums";
   },
 
   getPhotos : (id) => {
     return "https://jsonplaceholder.typicode.com/albums/"+id+"/photos";
+  },
+
+  createTask : (id) => {
+    return "https://jsonplaceholder.typicode.com/todos";
   }
 };
 
